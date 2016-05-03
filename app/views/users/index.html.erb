@@ -2,20 +2,28 @@
  <% @users.each do |user| %>
 
 	<tr>
-		<%= user.first_name%>
+	<td>First name</td>
+	<td><%= user.first_name%></td>
 	</tr>
 <tr>
-		<%= user.last_name%>
+	<td>Last Name</td>
+ 	<td><%= user.last_name%></td>
 	</tr>
 <tr>
-		<%= user.email%>
+<td>Email</td>
+		<td><%= user.email%></td>
 	</tr>
 <tr>
-		<%= user.username%>
-	</tr>
+<td>User Name</td>
+		<td><%= user.username%>
+</td>	</tr>
 <tr>
+<td>Status</td>
+<td>
 		<%= user.active%>
-	</tr>
+</td>	</tr>
 
 <% end %>
 </table>
+
+<p> <%= link_to "New user", new_user_path %>
