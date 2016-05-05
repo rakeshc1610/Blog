@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+	before_action :get_user_id, only: [:show, :edit, :update]
+
+	
 	def index
 	  @users=User.order("created_at DESC").limit(10)
 	end
@@ -17,10 +20,10 @@ class UsersController < ApplicationController
 	  end
 	end
 	def edit
-		@user = User.find_by(id: params[:id])
+		
 	end
 	def update
-	  @user=User.find_by(id: params[:id])
+	  
 		if @user.update_attributes(user_params)
 			flash[:notice] = "Record updated successfully"
 			redirect_to action: "show", id: @user.id
@@ -32,7 +35,7 @@ class UsersController < ApplicationController
 
 	def show
 
-		@user = User.find_by(id: params[:id])
+		
 	end
 
 	def destroy
@@ -43,6 +46,8 @@ class UsersController < ApplicationController
 		
 		params.require(:user).permit(:first_name,:last_name,:username,:password,:active,:email)#strong parameters
 	end
-
+  def get_user_id
+  @user = User.find_by(id: params[:id])
+  end
 
 end
