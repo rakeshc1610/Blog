@@ -1,5 +1,26 @@
-<%= form_tag "/users", method: "pots" do %>
-	<%= text_field_tag :username %>
-	<%= password_field_tag :password %>
+<h2>Enter the login credentials</h2>
+<% if flash[:notice] -%>
+  <p class='notice'><%=h flash[:notice] %></p>
+<% end -%>
+<%= form_tag "/session", method: "post" do %>
+<p>
+	<span> Username </span>
+
+	<span><%= text_field_tag :username %></span>
+	</p>
+
+	<p>
+	<span>password</span>
+	<span><%= password_field_tag :password %></span>
+	</p>
+	<p>
 	<%= submit_tag "Login" %>
+	</p>
+	<p>
+		<h6>Create a new account</h6> <%= link_to "Signup", controller: "users", action: "new" %>
+		
+	</p>
+
+	
 <% end %>
+

@@ -26,3 +26,6 @@
 
 <p> <%= link_to "Edit", edit_user_path(@user.id) %>
 </p>
+<% if flash[:notice] -%>
+  <p class='notice'><%=h flash[:notice] %></p>
+<% end -%>

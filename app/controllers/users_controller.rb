@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 	before_action :get_user_id, only: [:show, :edit, :update]
-
-	
+  before_action :logged_in?, except: [:new]
+ 	
 	def index
 	  @users=User.order("created_at DESC").limit(10)
 	end
@@ -48,6 +48,10 @@ class UsersController < ApplicationController
 	end
   def get_user_id
   @user = User.find_by(id: params[:id])
+  end
+  def logged_in?
+  	session[:current_user_id].present?
+  	
   end
 
 end
