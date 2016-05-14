@@ -50,7 +50,7 @@ class UsersController < ApplicationController
   @user = User.find_by(id: params[:id])
   end
   def logged_in?
-  	session[:current_user_id].present?
+  	redirect_to new_session_path if session[:current_user_id].blank?
   	
   end
 

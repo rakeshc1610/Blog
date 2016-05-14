@@ -5,7 +5,13 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'sessions#new'
    resources :users
-   resource :session,only: [:new, :create]
+   resource :session, only: [:new, :create] do
+    get :logout
+  end
+    resources :blog_lists, only: [:index, :new, :create, :show] 
+    
+
+   
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -19,12 +25,12 @@ Rails.application.routes.draw do
   # Example resource route with options:
   #   resources :products do
   #     member do
-  #       get 'short'
+  #       get 'short' # /products/:id/short
   #       post 'toggle'
   #     end
   #
   #     collection do
-  #       get 'sold'
+  #       get 'sold' #products/sold?id=1
   #     end
   #   end
 

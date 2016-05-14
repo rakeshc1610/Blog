@@ -26,6 +26,6 @@
 
 <p> <%= link_to "Edit", edit_user_path(@user.id) %>
 </p>
-<% if flash[:notice] -%>
-  <p class='notice'><%=h flash[:notice] %></p>
-<% end -%>
+<p> <%= link_to "Create a blog", new_blog_list_path() %>
+</p>
+<p> <%= link_to "Logout", logout_session_path %>
