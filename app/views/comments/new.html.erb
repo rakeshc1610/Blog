@@ -1,0 +1,12 @@
+
+<%= form_for @comment do |f| %>
+<p>
+	message: <%=f.text_area :message, cols: 100, rows: 5 %>
+	</p>
+	<p>
+		<%= f.submit  "Enter comment"%>
+	</p>
+
+	
+<% end %>
+

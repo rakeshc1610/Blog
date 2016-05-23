@@ -1,0 +1,27 @@
+<table>
+<th><tr><td>name</td><td>content</td><td>user</td><td>created time</td><td>Action1</td><td>Action2</td></tr></th>
+<% blogs.each do |blog| %>
+<tr>
+<td>
+<%= blog.name %>
+</td>
+<td>
+<%= blog.content %> 
+</td>
+<td>
+<%= blog.user.first_name %>
+</td> 
+<td>
+<%= time_ago_in_words(blog.created_at) %>
+</td>
+<td>
+<%= link_to "Show blog", blog_list_path(id: blog.id) %>
+</td>
+<td>
+<%= link_to "Post comment", new_comment_path %>
+</td>
+</tr>
+<% end %>
+</table>
+<%= will_paginate blogs %>
+<p> <%= link_to "Create a blog", new_blog_list_path %></p>

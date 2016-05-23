@@ -11,8 +11,12 @@ class User < ActiveRecord::Base
     has_and_belongs_to_many  :communities, join_table: :community_users
     has_one :address
     has_and_belongs_to_many :roles
+    self.per_page = 2
+    after_create :send_email
 
-end
+ def name
+ 	first_name + "	" + last_name
+ end
 
 
  def email_regex
@@ -30,4 +34,8 @@ end
 
 def compute_fullname 
    fullname = (self.first_name+self.last_name)
+end
+def send_email
+   UserMailer.welcome(self)
+end
 end

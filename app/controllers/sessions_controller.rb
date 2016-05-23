@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
 
   def logout
   	session.clear
-  	flash[:notice] = "Succesfullly Logged out."
+  	flash[:notice] = "Succesfully Logged out."
   	redirect_to :new_session
   end
 end

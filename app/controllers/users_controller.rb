@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   before_action :logged_in?, except: [:new]
  	
 	def index
-	  @users=User.order("created_at DESC").limit(10)
+	  @users=User.paginate(page: params[:page]).order("created_at DESC")
+
 	end
 	def new
 		@user=User.new

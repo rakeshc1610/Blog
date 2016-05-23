@@ -8,7 +8,12 @@ Rails.application.routes.draw do
    resource :session, only: [:new, :create] do
     get :logout
   end
-    resources :blog_lists, only: [:index, :new, :create, :show] 
+    resources :blog_lists, only: [:index, :new, :create, :show] do
+      collection do
+       get 'my_blogs' # /products/:id/short   post 'toggle'
+      end
+    end
+    resources :comments, only: [:new, :create]
     
 
    
