@@ -1,27 +1,29 @@
 <table>
 
 	<tr>
-	<td>First name</td>
+	<td>First name:</td>
 	<td><%= @user.first_name%></td>
 	</tr>
 <tr>
-	<td>Last Name</td>
+	<td>Last Name:</td>
  	<td><%= @user.last_name%></td>
 	</tr>
 <tr>
-<td>Email</td>
+<td>Email:</td>
 		<td><%= @user.email%></td>
 	</tr>
 <tr>
-<td>User Name</td>
+<td>User Name:</td>
 		<td><%= @user.username%>
 </td>	</tr>
 <tr>
-<td>Status</td>
+<td>Status:</td>
 <td>
 		<%= @user.active%>
 </td>	</tr>
 
 </table>
+<% if session[:current_user_id] == @user.id %>
 <p> <%= link_to "Edit", edit_user_path(@user.id) %>
 </p>
+<% end %>

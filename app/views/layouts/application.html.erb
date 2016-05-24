@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>Blog</title>
-  <%#= stylesheet_link_tag    'application', media: 'all' %>
-  <%#= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -13,12 +13,12 @@
 <% if (controller.controller_name != "users" &&  controller.action_name != "show") %>
    <p> <%= link_to "View my profile", user_path(session[:current_user_id]) %></p>
 <% end %>
-<% if (controller.controller_name != "blog_lists" &&  controller.action_name != "index") %>
+<% if (controller.controller_name == "blog_lists" &&  controller.action_name != "index") %>
    <p> <%= link_to "View blogs", blog_lists_path %> </p>
-   <% end %>
-   <% if (controller.controller_name != "blog_lists" &&  controller.action_name != "my_blogs") %>
+<% end %>
+<% if (controller.controller_name != "blog_lists" &&  controller.action_name != "my_blogs") %>
    <p> <%= link_to "View my blogs", my_blogs_blog_lists_path %> </p>
-   <% end %>
+<% end %>
    <p> <%= link_to "Logout", logout_session_path %> </p> 
 <%end%>
 </div>
