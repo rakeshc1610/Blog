@@ -2,7 +2,6 @@ class SessionsController < ApplicationController
   def new
   end
   def create
-  
   	user = User.find_by(username: params[:username], password: params[:password])
   	if user
   		flash[:notice]="Login Successful"

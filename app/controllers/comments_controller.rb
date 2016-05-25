@@ -1,19 +1,15 @@
 class CommentsController < ApplicationController
-def new
-	@comment=Comment.new
-end
-def create
-		 
-		 blog = BlogList.find_by(id: session[:current_user_id])
-		 message = blog.comments.new(comment_params)
-		 if message.save
-		 	 flash[:notice] = "comment posted"
-		 	 	
-		end
-end
-		private
+before_action :logged_in?
+  def new
+	  @comment=Comment.new
+  end
 
-	def comment_params
-		params.require(:comment).permit(:message)
-	end	
+  def create	
+	  raise params.inspect
+	  blog = BlogList.find_by(id: session[:current_user_id])
+	  message = blog.comments.new()
+	  if message.save
+		flash[:notice] = "comment posted"
+	  end
+  end
 end

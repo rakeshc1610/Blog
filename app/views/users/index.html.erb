@@ -1,34 +1,31 @@
 <table>
- <% @users.each do |user| %>
+  <% @users.each do |user| %>
 
-	<tr>
-	<td>First name</td>
-	<td><%= user.first_name%></td>
+  <tr>
+	  <td>First name</td>
+	  <td><%= user.first_name%></td>
 	</tr>
-<tr>
-	<td>Last Name</td>
- 	<td><%= user.last_name%></td>
+  <tr>
+	  <td>Last Name</td>
+ 	  <td><%= user.last_name%></td>
 	</tr>
-<tr>
-<td>Email</td>
+  <tr>
+    <td>Email</td>
 		<td><%= user.email%></td>
 	</tr>
-<tr>
-<td>User Name</td>
-		<td><%= user.username%>
-</td>	</tr>
-<tr>
-<td>Status</td>
-<td>
-		<%= user.active%>
-</td>	</tr>
-
-<% end %>
+  <tr>
+    <td>User Name</td>
+		<td><%= user.username%></td>	
+	</tr>
+  <tr>
+    <td>Status</td>
+    <td><%= user.active%></td>	
+  </tr>
+  <% end %>
 </table>
-
 <p> <%= link_to "New user", new_user_path %>
-
 </p>
-
-<p><%= link_to "Logout",logout_session_path %></p>
-<%= will_paginate @users %>
+<p>
+  <%= link_to "Logout",logout_session_path %></p>
+  <%= will_paginate @users %>
+</p>

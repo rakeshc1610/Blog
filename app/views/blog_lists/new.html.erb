@@ -1,14 +1,13 @@
 <h2>Enter the Blog name</h2>
-<%= form_for @blog do |f| %>
-<p>
-	name: <%=f.text_field :name %>
+  <%= form_for @blog do |f| %>
+  <p>
+	  name: <%=f.text_field :name %>
 	</p>
 	<p>
-	content: <%=f.text_area :content, cols: 100, rows: 5 %>
-	<p>
-	<%= f.submit  "Save the Post"%>
+	  content: <%=f.text_area :content, cols: 100, rows: 5 %>
 	</p>
-
-	
+	<p>
+	  <%= f.submit  "Save the Post"%>
+	</p>
 <% end %>
 

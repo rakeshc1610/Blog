@@ -1,0 +1,7 @@
+
+<%= form_for comment, class: "form-inline" do |f| %>
+  <div class="col-sm-6">
+    <%=f.text_area :message, class: 'form-control col-sm-6', placeholder: "Enter the comment"  %>
+  </div>
+<%= f.submit  "Enter comment", class: "btn btn-primary btn"%>
+<% end %>

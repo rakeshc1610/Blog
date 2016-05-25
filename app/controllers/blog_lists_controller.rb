@@ -8,20 +8,17 @@ before_action :current_user, only: [:create, :my_blogs]
 		@blog=BlogList.new
 	end
 	def create
-		 #raise params.inspect
-		 
-		 blog = @user.blog_lists.new(blog_params)
-		 if blog.save
-		 	 flash[:notice] = "blog saved successfully"
-		 	 redirect_to action: "show", id: blog.id
-		 	else
+		blog = @user.blog_lists.new(blog_params)
+		if blog.save
+		 	flash[:notice] = "blog saved successfully"
+		 	redirect_to action: "show", id: blog.id
+		else
 		 	render :new
-		 	 	
 		end
 	end
 	def show
     @blog=BlogList.find_by(id: params[:id])
-	end
+  end
 	def my_blogs
 		@my_blogs = @user.blog_lists.paginate(page: params[:page])
 	end
@@ -29,11 +26,7 @@ before_action :current_user, only: [:create, :my_blogs]
 	def current_user
 		@user=User.find_by(id: session[:current_user_id])
 	end
-
-	def blog_params
+  def blog_params
 		params.require(:blog_list).permit(:name, :content)
 	end	
-	def logged_in?
-		redirect_to new_session_path if session[:current_user_id].blank?
-	end
 end

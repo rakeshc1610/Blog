@@ -6,40 +6,36 @@
 <% end %>
 <% end %>
 <p>
-<span>First Name</span>
-<span><%= f.text_field :first_name %>
-</span>
+  <span>First Name</span>
+  <span><%= f.text_field :first_name %>
+  </span>
 </p>
 <p>
-<span>Last Name</span>
-<span><%= f.text_field :last_name %>
-</span>
+  <span>Last Name</span>
+  <span><%= f.text_field :last_name %>
+  </span>
 </p>
 <p>
-<span>Email</span>
-<span><%= f.text_field :email %>
-</span>
+  <span>Email</span>
+  <span><%= f.text_field :email %>
+  </span>
 </p>
 <p>
-<p>
-<span>UserName</span>
-<span><%= f.text_field :username %>
-</span>
+  <span>UserName</span>
+  <span><%= f.text_field :username %>
+  </span>
 </p>
 <p>
-<span>Password</span>
-<span><%= f.password_field :password %>
-</span>
+  <span>Password</span>
+  <span><%= f.password_field :password %>
+  </span>
+  </p>
+<p>
+  <span>Active</span>
+  <span><%= f.check_box :active %>
+  </span>
 </p>
 <p>
-<span>Active</span>
-<span><%= f.check_box :active %>
-</span>
+  <%= f.submit :submit %>
 </p>
-<p>
-<%= f.submit :submit %>
-</p>
-
-
-
 <%end%>

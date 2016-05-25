@@ -7,24 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<hr>
-<div class = "header">
-<% if session[:current_user_id] %>
-<% if (controller.controller_name != "users" &&  controller.action_name != "show") %>
-   <p> <%= link_to "View my profile", user_path(session[:current_user_id]) %></p>
-<% end %>
-<% if (controller.controller_name == "blog_lists" &&  controller.action_name != "index") %>
-   <p> <%= link_to "View blogs", blog_lists_path %> </p>
-<% end %>
-<% if (controller.controller_name != "blog_lists" &&  controller.action_name != "my_blogs") %>
-   <p> <%= link_to "View my blogs", my_blogs_blog_lists_path %> </p>
-<% end %>
-   <p> <%= link_to "Logout", logout_session_path %> </p> 
-<%end%>
-</div>
-<hr>
+<ul class= "nav nav-tabs" >
+  <% if session[:current_user_id] %>
+  <% if (controller.controller_name != "users" &&  controller.action_name != "show") %>
+  <li role="presentation",class ="Active"><%= link_to "View my profile", user_path(session[:current_user_id]) %></li>
+  <% end %>
+  <% if (controller.controller_name == "blog_lists" &&  controller.action_name != "index") %>
+  <li role= "presentation" > <%= link_to "View blogs", blog_lists_path %> </li>
+  <% end %>
+  <% if (controller.controller_name != "blog_lists" &&  controller.action_name != "my_blogs") %>
+  <li role = "presentation"><%= link_to "View my blogs", my_blogs_blog_lists_path %> </li>
+  <% end %>
+  <li role="presentation"> <%= link_to "Logout", logout_session_path %> </li> 
+  <%end%>
+</ul>
 <div class = "content">
-<%= yield %>
+  <%= yield %>
 </div>
 </body>
 </html>

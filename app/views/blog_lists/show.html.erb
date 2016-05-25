@@ -1,15 +1,11 @@
-<table>
-<tr>
-<td>Blog_name:</td>
-<td><%= @blog.name %>
-</td>
-</tr>
-<tr>
-<td>Blog_content:</td>
-<td><%= @blog.content %> 
-</td>
-</tr>
-</table>
-<p> <%= link_to "Write a comment", new_comment_path() %>
-<p> <%= link_to "Create a blog", new_blog_list_path %></p>
+<div class="row">
+  <%= render partial: "blog_show", locals: { blogs: @blogs } %>
+</div>
+<div class="row col-sm-offset-0">
+  <%= render partial: "/comments/new_comment", object: @blog.comments.new, as: 'comment' %>
+</div>
+<br/>
+<div class="row col-sm-offset-0">
+  <%= link_to "Create a blog", new_blog_list_path, class: "btn btn-primary btn-lg active", role: "button" %>
+</div>
 

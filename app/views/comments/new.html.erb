@@ -1,12 +1,6 @@
-
-<%= form_for @comment do |f| %>
-<div class='row col-xs-6'>
-  <%=f.text_area :message, class: 'form-control col-xs-6 col-sm-4', placeholder: "Enter the comment"  %>
+<div>
+  <%= render partial: "/blog_lists/blog_show", locals: { blogs: @blog } %>
 </div>
-<div class="form-group">
-<div class="col-sm-10">
-<%= f.submit  "Enter comment", class: "btn btn-primary btn-lg"%>
+<div class="row">
+  <%= render partial: "new_comment", locals: {comment: @comment } %>
 </div>
-<% end %>
-
- 
