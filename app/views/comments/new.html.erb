@@ -1,5 +1,5 @@
 <div>
-  <%= render partial: "/blog_lists/blog_show", locals: { blogs: @blog } %>
+  <%= render partial: "/blog_lists/blog_show", object: @blog %>
 </div>
 <div class="row">
   <%= render partial: "new_comment", locals: {comment: @comment } %>

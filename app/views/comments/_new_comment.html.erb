@@ -1,5 +1,4 @@
-
-<%= form_for comment, class: "form-inline" do |f| %>
+<%= form_for :comment, url: blog_list_comments_path(blog.id), class: "form-inline" do |f| %>
   <div class="col-sm-6">
     <%=f.text_area :message, class: 'form-control col-sm-6', placeholder: "Enter the comment"  %>
   </div>

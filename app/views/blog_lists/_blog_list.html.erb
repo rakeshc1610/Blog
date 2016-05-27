@@ -18,7 +18,7 @@
     <%= link_to "Show blog", blog_list_path(id: blog.id) %>
   </td>
   <td>
-    <%= link_to "Post comment", new_comment_path %>
+    <%= link_to "Post comment", blog_list_path(id: blog.id) %>
   </td>
   </tr>
   <% end %>

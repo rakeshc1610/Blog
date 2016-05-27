@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20160513172724) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer  "users_id",     limit: 4
+    t.integer  "user_id",      limit: 4
     t.integer  "blog_list_id", limit: 4
     t.text     "message",      limit: 65535
     t.datetime "created_at",                 null: false

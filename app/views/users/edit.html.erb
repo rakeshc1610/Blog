@@ -5,37 +5,40 @@
 <%= msg %>
 <% end %>
 <% end %>
-<p>
-  <span>First Name</span>
-  <span><%= f.text_field :first_name %>
-  </span>
-</p>
-<p>
-  <span>Last Name</span>
-  <span><%= f.text_field :last_name %>
-  </span>
-</p>
-<p>
-  <span>Email</span>
-  <span><%= f.text_field :email %>
-  </span>
-</p>
-<p>
-  <span>UserName</span>
-  <span><%= f.text_field :username %>
-  </span>
-</p>
-<p>
-  <span>Password</span>
-  <span><%= f.password_field :password %>
-  </span>
-  </p>
-<p>
-  <span>Active</span>
-  <span><%= f.check_box :active %>
-  </span>
-</p>
-<p>
-  <%= f.submit :submit %>
-</p>
+<div class='form-horizontal row col-xs-3'>
+  <div class = "form-group">
+    <%= label_tag 'firstname', nil, class: 'col-sm-offset-1 control-label' %>
+    <%= f.text_field :first_name, class: "form-control col-sm-offset-1", placeholder: "Enter first name" %>
+  </div>
+  <div class = "form-group">
+    <%= label_tag 'Lastname', nil, class: 'col-sm-offset-1 control-label' %>
+    <%= f.text_field :last_name, class: "form-control col-sm-offset-1", placeholder: "Enter last name" %>
+  </div>
+  <div class = "form-group">
+    <%= label_tag 'email', nil, class: 'col-sm-offset-1 control-label' %>
+    <%= f.text_field :email, class: "form-control col-sm-offset-1", placeholder: "Enter email" %>
+  </div>
+  <div class = "form-group">
+    <%= label_tag 'username', nil, class: 'col-sm-offset-1 control-label' %>
+    <%= f.text_field :username, class: "form-control col-sm-offset-1", placeholder: "Enter user name" %>
+  </div>
+  <div class = "form-group">
+    <%= label_tag 'password', nil, class: 'col-sm-offset-1 control-label' %>
+    <%= f.password_field :password, class: "form-control col-sm-offset-1", placeholder: "Enter password" %>
+  </div>
+  <div class="form-inline form-group">
+    <div class="checkbox col-sm-offset-1">
+      <label>Active</label>
+        <%= f.check_box :active %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= label_tag "File Input", nil, class: "col-sm-offset-1" %>
+    <%= f.file_field :image, class:"col-sm-offset-1" %>
+  </div>
+  <div class = "form-group">
+    <div class="col-sm-offset-1">
+      <%= f.submit :submit , class: "btn btn-primary" %>
+    </div>
+  </div>
 <%end%>

@@ -12,8 +12,9 @@ Rails.application.routes.draw do
       collection do
        get 'my_blogs' # /products/:id/short   post 'toggle'
       end
+    resources :comments, only: [:destroy, :create]
     end
-    resources :comments, only: [:new, :create]
+    
     
 
    

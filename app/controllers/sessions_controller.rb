@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
   def new
+    if current_user
+      redirect_to controller: :users, action: :show, id: current_user.id
+    end 
   end
   def create
   	user = User.find_by(username: params[:username], password: params[:password])

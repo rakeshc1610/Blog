@@ -1,11 +1,19 @@
+<% if flash[:notice]%>
+  <div class="alert alert-info alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <%= flash[:notice] %>
+<% end %>
+</div>
 <div class="row">
-  <%= render partial: "blog_show", locals: { blogs: @blogs } %>
+  <%= render partial: "blog_show", locals: { blog: @blog } %>
 </div>
 <div class="row col-sm-offset-0">
-  <%= render partial: "/comments/new_comment", object: @blog.comments.new, as: 'comment' %>
+  <%= render partial: "/comments/new_comment", locals: {blog: @blog}%>
+</div>
+<div class = "row">
+  <%= render partial: "comments/list", collection: @comments, as: "comment" %>
 </div>
 <br/>
 <div class="row col-sm-offset-0">
   <%= link_to "Create a blog", new_blog_list_path, class: "btn btn-primary btn-lg active", role: "button" %>
 </div>
-

@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   private
   def current_user
-    @current_user ||= session[:current_user_id] && User.find_by(id: session[:current_user_id])
+    @current_user ||= User.find_by(id: session[:current_user_id])
   end
   def logged_in?
 	  redirect_to new_session_path if session[:current_user_id].blank?
